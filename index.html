@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Orbitron');
+
+	
+
+	#clock {
+	  font-family: 'Orbitron', sans-serif;
+	  color: #d99100;
+	  font-size: 56px;
+	  text-align: center;
+	  padding-top: 40px;
+	  padding-bottom: 40px;
+	}
+
+
+	</style>
+</head>
+<body>
+	<div id="clock"></div>
+
+	<script type="text/javascript">
+		function currentTime() {
+		  var date = new Date(); /* creating object of Date class */
+		  var hour = date.getHours();
+		  var min = date.getMinutes();
+		  var sec = date.getSeconds();
+		  hour = updateTime(hour);
+		  min = updateTime(min);
+		  sec = updateTime(sec);
+		  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec; /* adding time to the div */
+		    var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+		}
+
+		function updateTime(k) {
+		  if (k < 10) {
+		    return "0" + k;
+		  }
+		  else {
+		    return k;
+		  }
+		}
+
+		currentTime(); /* calling currentTime() function to initiate the process */
+
+
+	</script>
+</body>
+</html>
